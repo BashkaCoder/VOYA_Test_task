@@ -49,7 +49,7 @@ Recreate client disposes its old runtime and transport subscription, then constr
 
 Run EditMode tests in Unity Test Runner or with `unity command run_tests --mode editor`. Twelve EditMode tests cover placement, hit/sunk/victory, turn alternation, out-of-turn and duplicate shots, server timeout before late delivery, stale turn IDs, serialized view privacy, revision rollback, snapshot convergence, cold client state, and pending shot recovery.
 
-All 12 tests passed on Unity 6000.3.24f1. Play Mode checks in the live editor confirmed both clients connected, rapid second fire was blocked, a silent break was detected, reconnect caught up to the server revision, recreation returned to the same match, a pending shot survived recreation and executed once, and scene reload with a 2-second delayed packet produced no Console error. A complete manually played victory and a high-loss full match have not been recorded. No demo video has been made in this session.
+All 12 tests passed on Unity 6000.3.24f1. Play Mode checks in the live editor confirmed both clients connected, rapid second fire was blocked, a silent break was detected, reconnect caught up to the server revision, recreation returned to the same match, a pending shot survived recreation and executed once, and scene reload with a 2-second delayed packet produced no Console error. A scripted full Play Mode match reached victory for A with server revision 22 and both clients at revision 22. A high-loss full match and demo video have not been recorded in this session.
 
 ## Decisions and limits
 
