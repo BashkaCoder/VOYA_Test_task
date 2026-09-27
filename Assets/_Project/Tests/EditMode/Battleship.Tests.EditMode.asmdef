@@ -1,0 +1,8 @@
+{
+  "name": "Battleship.Tests.EditMode",
+  "rootNamespace": "Voya.Battleship.Tests",
+  "references": ["Battleship.Runtime"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": false
+}
