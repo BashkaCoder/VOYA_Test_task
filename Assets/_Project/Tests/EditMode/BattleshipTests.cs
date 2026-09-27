@@ -1,11 +1,17 @@
 using System;
 using NUnit.Framework;
+using UnityEditor;
 using UnityEngine;
 
 namespace Voya.Battleship.Tests
 {
     public class BattleshipTests
     {
+        private const string ConfigPath = "Assets/_Project/Config/BattleshipConfig.asset";
+        private const string TestToken = "test-token";
+        private const string PersistedToken = "persisted-token";
+        private const string HiddenEnemyField = "enemyShips";
+        private static BattleshipConfig Config => AssetDatabase.LoadAssetAtPath<BattleshipConfig>(ConfigPath);
         private static Board Empty(int size = 3)
         {
             int[] cells = new int[size * size];
@@ -19,9 +25,9 @@ namespace Voya.Battleship.Tests
         public void PlacementFitsAndContainsExactFleet()
         {
             int[] fleet = { 3, 2, 2, 1 };
-            for (int seed = 0; seed < 50; seed++)
+            for (int sample = 0; sample < 50; sample++)
             {
-                Board board = FleetPlacement.Create(6, fleet, new System.Random(seed));
+                Board board = FleetPlacement.Create(6, fleet, new System.Random());
                 int count = 0;
                 foreach (int cell in board.ShipCells()) count += cell;
                 Assert.AreEqual(8, count);
@@ -73,20 +79,20 @@ namespace Voya.Battleship.Tests
             Assert.AreEqual(0, match.ActivePlayer);
             Assert.AreEqual(3, match.TurnId);
             Assert.IsFalse(match.Fire(0, 1, 0, out _, out string reason));
-            Assert.AreEqual("Stale turn", reason);
+            Assert.AreEqual(RuleText.StaleTurn, reason);
             Assert.AreEqual(3, match.Revision);
         }
 
         [Test]
         public void DuplicateCommandIsAppliedOnce()
         {
-            BattleshipConfig config = ScriptableObject.CreateInstance<BattleshipConfig>();
-            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), _ => { });
+            BattleshipConfig config = Config;
+            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), false, _ => { });
             try
             {
-                BattleshipServer server = new BattleshipServer(config, transport, 0, () => "test-token");
-                server.Handle(new Packet { type = "Connect", slot = 0 }, 0);
-                Packet fire = new Packet { type = "Fire", slot = 0, token = "test-token", sequence = 7, turnId = 1, cell = 0 };
+                BattleshipServer server = new BattleshipServer(config, transport, 0, () => TestToken);
+                server.Handle(new Packet { type = ProtocolTypes.Connect, slot = 0 }, 0);
+                Packet fire = new Packet { type = ProtocolTypes.Fire, slot = 0, token = TestToken, sequence = 7, turnId = 1, cell = 0 };
                 server.Handle(fire, 1);
                 int revision = server.Match.Revision;
                 server.Handle(fire, 1.1);
@@ -94,24 +100,24 @@ namespace Voya.Battleship.Tests
                 Assert.AreEqual(revision, server.Match.Revision);
                 Assert.AreEqual(2, server.Match.TurnId);
             }
-            finally { transport.Dispose(); UnityEngine.Object.DestroyImmediate(config); }
+            finally { transport.Dispose(); }
         }
 
         [Test]
         public void ServerExpiresTurnBeforeProcessingDelayedShot()
         {
-            BattleshipConfig config = ScriptableObject.CreateInstance<BattleshipConfig>();
-            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), _ => { });
+            BattleshipConfig config = Config;
+            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), false, _ => { });
             try
             {
-                BattleshipServer server = new BattleshipServer(config, transport, 0, () => "test-token");
-                server.Handle(new Packet { type = "Connect", slot = 0 }, 0);
-                server.Handle(new Packet { type = "Fire", slot = 0, token = "test-token", sequence = 1, turnId = 1, cell = 0 }, 15.1);
+                BattleshipServer server = new BattleshipServer(config, transport, 0, () => TestToken);
+                server.Handle(new Packet { type = ProtocolTypes.Connect, slot = 0 }, 0);
+                server.Handle(new Packet { type = ProtocolTypes.Fire, slot = 0, token = TestToken, sequence = 1, turnId = 1, cell = 0 }, config.TurnSeconds + 0.1);
                 Assert.AreEqual(2, server.Match.Revision);
                 Assert.AreEqual(1, server.Match.ActivePlayer);
                 foreach (int mark in server.Match.View(0, 0).enemyShots) Assert.AreEqual(0, mark);
             }
-            finally { transport.Dispose(); UnityEngine.Object.DestroyImmediate(config); }
+            finally { transport.Dispose(); }
         }
 
         [Test]
@@ -120,7 +126,7 @@ namespace Voya.Battleship.Tests
             Match match = SmallMatch();
             Snapshot view = match.View(0, 15);
             string json = JsonUtility.ToJson(view);
-            Assert.IsFalse(json.Contains("enemyShips"));
+            Assert.IsFalse(json.Contains(HiddenEnemyField));
             foreach (int mark in view.enemyShots) Assert.AreEqual(0, mark);
             Assert.AreEqual(1, view.ownShips[0]);
         }
@@ -128,8 +134,8 @@ namespace Voya.Battleship.Tests
         [Test]
         public void OlderSnapshotCannotRollClientBack()
         {
-            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), _ => { });
-            ClientRuntime client = new ClientRuntime(0, transport, new SessionStore(), 0);
+            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), false, _ => { });
+            ClientRuntime client = new ClientRuntime(0, transport, new SessionStore(), Config.Timing, 0);
             try
             {
                 Snapshot current = SmallMatch().View(0, 15);
@@ -152,8 +158,8 @@ namespace Voya.Battleship.Tests
             Snapshot missed = match.View(0, 15);
             match.Timeout(); match.Timeout();
             Snapshot resumed = match.View(0, 13);
-            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), _ => { });
-            ClientRuntime client = new ClientRuntime(0, transport, new SessionStore(), 0);
+            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), false, _ => { });
+            ClientRuntime client = new ClientRuntime(0, transport, new SessionStore(), Config.Timing, 0);
             try
             {
                 client.ApplySnapshot(missed, 0);
@@ -168,16 +174,16 @@ namespace Voya.Battleship.Tests
         public void RecreatedClientStartsWithoutVolatileStateButKeepsSessionIdentity()
         {
             SessionStore store = new SessionStore();
-            store.SaveToken(0, "persisted-token");
-            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), _ => { });
-            ClientRuntime first = new ClientRuntime(0, transport, store, 0);
+            store.SaveToken(0, PersistedToken);
+            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), false, _ => { });
+            ClientRuntime first = new ClientRuntime(0, transport, store, Config.Timing, 0);
             first.ApplySnapshot(SmallMatch().View(0, 15), 0);
             first.Dispose();
-            ClientRuntime recreated = new ClientRuntime(0, transport, store, 1);
+            ClientRuntime recreated = new ClientRuntime(0, transport, store, Config.Timing, 1);
             try
             {
                 Assert.IsNull(recreated.State);
-                Assert.AreEqual("persisted-token", store.Token(0));
+                Assert.AreEqual(PersistedToken, store.Token(0));
                 Assert.IsNull(store.Token(1));
                 recreated.ApplySnapshot(SmallMatch().View(0, 14), 1);
                 Assert.AreEqual(1, recreated.State.revision);
@@ -189,12 +195,12 @@ namespace Voya.Battleship.Tests
         public void PendingCommandSurvivesRecreationAndResolvesFromAuthoritativeTurn()
         {
             SessionStore store = new SessionStore();
-            store.SaveToken(0, "persisted-token");
+            store.SaveToken(0, PersistedToken);
             store.SavePending(0, 12, 1, 2);
-            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), _ => { });
-            ClientRuntime old = new ClientRuntime(0, transport, store, 0);
+            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), false, _ => { });
+            ClientRuntime old = new ClientRuntime(0, transport, store, Config.Timing, 0);
             old.Dispose();
-            ClientRuntime recreated = new ClientRuntime(0, transport, store, 1);
+            ClientRuntime recreated = new ClientRuntime(0, transport, store, Config.Timing, 1);
             try
             {
                 Assert.IsNull(recreated.State);
@@ -204,7 +210,7 @@ namespace Voya.Battleship.Tests
                 recreated.ApplySnapshot(current, 1);
                 Assert.AreEqual(-1, recreated.PendingCell);
                 Assert.IsNull(store.Pending(0));
-                Assert.AreEqual("Shot did not execute", recreated.LastShot);
+                Assert.AreEqual(UiText.ShotNotExecuted, recreated.LastShot);
             }
             finally { recreated.Dispose(); transport.Dispose(); }
         }

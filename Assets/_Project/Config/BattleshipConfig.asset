@@ -9,14 +9,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8a7ffde865d08c54e9b3c33bf4250fd0, type: 3}
   m_Name: BattleshipConfig
-  m_EditorClassIdentifier: Battleship.Runtime:Voya.Battleship:BattleshipConfig
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.BattleshipConfig
   _boardSize: 6
   _ships: 03000000020000000200000001000000
   _turnSeconds: 15
   _network:
-    latencyMs: 80
-    jitterMs: 30
-    loss: 0.05
-    duplication: 0.03
+    _latencyMs: 120
+    _jitterMs: 80
+    _loss: 0
+    _duplication: 0
+  _clientTiming:
+    _watchdogSeconds: 4
+    _connectRetrySeconds: 1
+    _heartbeatSeconds: 1
+    _shotRetrySeconds: 0.7
+  _palette:
+    _unknown: {r: 0.21, g: 0.34, b: 0.47, a: 1}
+    _ship: {r: 0.31, g: 0.76, b: 0.69, a: 1}
+    _miss: {r: 0.55, g: 0.61, b: 0.69, a: 1}
+    _hit: {r: 0.89, g: 0.35, b: 0.3, a: 1}
+    _pending: {r: 0.96, g: 0.75, b: 0.35, a: 1}
+  _networkSettingsLimits:
+    _latencyMaxMs: 1000
+    _jitterMaxMs: 700
+  _uiRefreshSeconds: 0.1
+  _visibleLogLines: 9
+  _loggingEnabled: 1
+  _runInBackground: 1
