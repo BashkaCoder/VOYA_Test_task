@@ -8,22 +8,15 @@ namespace Voya.Battleship.Presentation
     public class NetworkSettingsView : MonoBehaviour
     {
         private const float PercentScale = 100f;
-        [SerializeField]
-        private Slider _latency;
-        [SerializeField]
-        private Slider _jitter;
-        [SerializeField]
-        private Slider _loss;
-        [SerializeField]
-        private Slider _duplication;
-        [SerializeField]
-        private Text _latencyLabel;
-        [SerializeField]
-        private Text _jitterLabel;
-        [SerializeField]
-        private Text _lossLabel;
-        [SerializeField]
-        private Text _duplicationLabel;
+        [SerializeField] private Slider _latency;
+        [SerializeField] private Slider _jitter;
+        [SerializeField] private Slider _loss;
+        [SerializeField] private Slider _duplication;
+        [SerializeField] private Text _latencyLabel;
+        [SerializeField] private Text _jitterLabel;
+        [SerializeField] private Text _lossLabel;
+        [SerializeField] private Text _duplicationLabel;
+
         public void Bind(NetworkProfile profile, NetworkSettingsLimits limits)
         {
             _latency.maxValue = limits.LatencyMaxMs;

@@ -13,7 +13,6 @@ namespace Voya.Battleship.Server
 {
     public class BattleshipServer
     {
-        private readonly Match _match;
         private readonly SimulatedTransport _transport;
         private readonly string[] _tokens;
         private readonly bool[] _confirmed;
@@ -21,7 +20,8 @@ namespace Voya.Battleship.Server
         private readonly double _turnSeconds;
         private readonly Func<string> _tokenFactory;
         private double _deadline;
-        public Match Match => _match;
+
+        public Match Match { get; }
 
         public BattleshipServer(BattleshipConfig config, SimulatedTransport transport, double now, Func<string> tokenFactory)
         {
@@ -33,15 +33,15 @@ namespace Voya.Battleship.Server
             _turnSeconds = config.TurnSeconds;
             _deadline = now + _turnSeconds;
             Random placementRandom = new Random(Guid.NewGuid().GetHashCode());
-            _match = new Match(FleetPlacement.Create(config.BoardSize, config.Ships, placementRandom), FleetPlacement.Create(config.BoardSize, config.Ships, placementRandom));
+            Match = new Match(FleetPlacement.Create(config.BoardSize, config.Ships, placementRandom), FleetPlacement.Create(config.BoardSize, config.Ships, placementRandom));
             _transport.BindServer(Receive);
         }
 
         public void Tick(double now)
         {
-            while (_match.Winner < 0 && now >= _deadline)
+            while (Match.Winner < 0 && now >= _deadline)
             {
-                _match.Timeout();
+                Match.Timeout();
                 _deadline += _turnSeconds;
                 Broadcast(now);
             }
@@ -126,7 +126,7 @@ namespace Voya.Battleship.Server
                 return;
             }
 
-            bool accepted = _match.Fire(packet.Slot, packet.TurnId, packet.Cell, out ShotMark mark, out string reason);
+            bool accepted = Match.Fire(packet.Slot, packet.TurnId, packet.Cell, out ShotMark mark, out string reason);
             Packet result = new Packet
             {
                 Type = ProtocolTypes.Result,
@@ -141,7 +141,7 @@ namespace Voya.Battleship.Server
             _transport.SendToClient(packet.Slot, result);
             if (accepted)
             {
-                if (_match.Winner < 0)
+                if (Match.Winner < 0)
                 {
                     _deadline = now + _turnSeconds;
                 }
@@ -151,7 +151,7 @@ namespace Voya.Battleship.Server
         }
 
         private void Reject(int slot, string reason) => _transport.SendToClient(slot, new Packet { Type = ProtocolTypes.Rejected, Slot = slot, Reason = reason });
-        private Snapshot View(int player, double now) => _match.View(player, Math.Max(0, _deadline - now));
+        private Snapshot View(int player, double now) => Match.View(player, Math.Max(0, _deadline - now));
         private void SendSnapshot(int player, double now)
         {
             if (_tokens[player] != null)

@@ -6,11 +6,8 @@ namespace Voya.Battleship.Configuration
     [Serializable]
     public class NetworkSettingsLimits
     {
-        [SerializeField]
-        private int _latencyMaxMs;
-        [SerializeField]
-        private int _jitterMaxMs;
-        public int LatencyMaxMs => _latencyMaxMs;
-        public int JitterMaxMs => _jitterMaxMs;
+        [field: SerializeField] public int LatencyMaxMs { get; private set; }
+
+        [field: SerializeField] public int JitterMaxMs { get; private set; }
     }
 }

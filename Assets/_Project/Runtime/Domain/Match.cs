@@ -7,11 +7,11 @@ namespace Voya.Battleship.Domain
     {
         private readonly Board[] _boards;
         private readonly int[][] _enemyMarks;
+
         public int ActivePlayer { get; private set; }
         public int TurnId { get; private set; }
         public int Revision { get; private set; }
         public int Winner { get; private set; }
-        public int Size => _boards[0].Size;
 
         public Match(Board a, Board b)
         {
@@ -19,16 +19,8 @@ namespace Voya.Battleship.Domain
             TurnId = GameRules.InitialTurnId;
             Revision = GameRules.InitialRevision;
             Winner = GameRules.NoWinner;
-            _boards = new[]
-            {
-                a,
-                b
-            };
-            _enemyMarks = new[]
-            {
-                new int[a.CellCount],
-                new int[a.CellCount]
-            };
+            _boards = new[] { a, b };
+            _enemyMarks = new[] { new int[a.CellCount], new int[a.CellCount] };
         }
 
         public bool Fire(int player, int turnId, int cell, out ShotMark result, out string reason)
@@ -53,7 +45,7 @@ namespace Voya.Battleship.Domain
                     }
                     else
                     {
-                        if (cell < 0 || cell >= Size * Size)
+                        if (cell < 0 || cell >= _boards[0].Size * _boards[0].Size)
                         {
                             reason = RuleText.InvalidCell;
                         }
@@ -121,7 +113,7 @@ namespace Voya.Battleship.Domain
                 TurnId = TurnId,
                 ActivePlayer = ActivePlayer,
                 Winner = Winner,
-                Size = Size,
+                Size = _boards[0].Size,
                 Remaining = remaining,
                 OwnShips = _boards[player].ShipCells(),
                 OwnShots = _boards[player].IncomingMarks(),

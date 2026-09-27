@@ -1,43 +1,30 @@
 using UnityEngine;
-using Voya.Battleship.Constants;
 
 namespace Voya.Battleship.Configuration
 {
-    [CreateAssetMenu(menuName = AssetPaths.BattleshipConfig)]
+    [CreateAssetMenu(menuName = "VOYA/Battleship Config")]
     public class BattleshipConfig : ScriptableObject
     {
-        [SerializeField]
-        private int _boardSize;
-        [SerializeField]
-        private int[] _ships;
-        [SerializeField]
-        private float _turnSeconds;
-        [SerializeField]
-        private NetworkProfile _networkStartMaximum;
-        [SerializeField]
-        private ClientTiming _clientTiming;
-        [SerializeField]
-        private BoardPalette _palette;
-        [SerializeField]
-        private NetworkSettingsLimits _networkSettingsLimits;
-        [SerializeField]
-        private float _uiRefreshSeconds;
-        [SerializeField]
-        private int _visibleLogLines;
-        [SerializeField]
-        private bool _loggingEnabled;
-        [SerializeField]
-        private bool _runInBackground;
-        public int BoardSize => _boardSize;
-        public int[] Ships => (int[])_ships.Clone();
-        public float TurnSeconds => _turnSeconds;
-        public NetworkProfile NetworkStartMaximum => _networkStartMaximum;
-        public ClientTiming Timing => _clientTiming;
-        public BoardPalette Palette => _palette;
-        public NetworkSettingsLimits NetworkSettingsLimits => _networkSettingsLimits;
-        public float UiRefreshSeconds => _uiRefreshSeconds;
-        public int VisibleLogLines => _visibleLogLines;
-        public bool LoggingEnabled => _loggingEnabled;
-        public bool RunInBackground => _runInBackground;
+        [field: SerializeField] public int BoardSize { get; private set; }
+
+        [field: SerializeField] public int[] Ships { get; private set; }
+
+        [field: SerializeField] public float TurnSeconds { get; private set; }
+
+        [field: SerializeField] public NetworkProfile NetworkStartMaximum { get; private set; }
+
+        [field: SerializeField] public ClientTiming Timing { get; private set; }
+
+        [field: SerializeField] public BoardPalette Palette { get; private set; }
+
+        [field: SerializeField] public NetworkSettingsLimits NetworkSettingsLimits { get; private set; }
+
+        [field: SerializeField] public float UiRefreshSeconds { get; private set; }
+
+        [field: SerializeField] public int VisibleLogLines { get; private set; }
+
+        [field: SerializeField] public bool LoggingEnabled { get; private set; }
+
+        [field: SerializeField] public bool RunInBackground { get; private set; }
     }
 }

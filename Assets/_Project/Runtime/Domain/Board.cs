@@ -6,6 +6,7 @@ namespace Voya.Battleship.Domain
         private readonly bool[] _hits;
         private readonly int[] _lengths;
         private readonly int[] _damage;
+
         public int Size { get; }
         public int CellCount => _ships.Length;
 
@@ -36,7 +37,9 @@ namespace Voya.Battleship.Domain
             {
                 if (_hits[i])
                 {
-                    marks[i] = _ships[i] < 0 ? (int)ShotMark.Miss : _damage[_ships[i]] == _lengths[_ships[i]] ? (int)ShotMark.Sunk : (int)ShotMark.Hit;
+                    marks[i] = _ships[i] < 0 ? (int)ShotMark.Miss : _damage[_ships[i]] == _lengths[_ships[i]]
+                        ? (int)ShotMark.Sunk
+                        : (int)ShotMark.Hit;
                 }
             }
 
@@ -44,6 +47,7 @@ namespace Voya.Battleship.Domain
         }
 
         public bool WasShot(int cell) => _hits[cell];
+
         public ShotMark Shoot(int cell)
         {
             _hits[cell] = true;

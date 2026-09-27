@@ -82,7 +82,10 @@ namespace Voya.Battleship.Client
             if (Connected && PendingCell >= 0 && now - _lastFire >= _timing.ShotRetrySeconds)
             {
                 _lastFire = now;
-                Send(new Packet { Type = ProtocolTypes.Fire, Sequence = _pendingSequence, TurnId = _pendingTurn, Cell = PendingCell });
+                Send(new Packet
+                {
+                    Type = ProtocolTypes.Fire, Sequence = _pendingSequence, TurnId = _pendingTurn, Cell = PendingCell
+                });
             }
         }
 
@@ -104,7 +107,8 @@ namespace Voya.Battleship.Client
 
         public void Fire(int cell, double now)
         {
-            if (!Connected || State == null || State.Winner >= 0 || State.ActivePlayer != _slot || PendingCell >= 0 || cell < 0 || cell >= State.Size * State.Size || State.EnemyShots[cell] != 0)
+            if (!Connected || State == null || State.Winner >= 0 || State.ActivePlayer != _slot || PendingCell >= 0 ||
+                cell < 0 || cell >= State.Size * State.Size || State.EnemyShots[cell] != 0)
             {
                 return;
             }
@@ -115,7 +119,10 @@ namespace Voya.Battleship.Client
             _store.SavePending(_slot, _pendingSequence, _pendingTurn, cell);
             _lastFire = now;
             LastShot = UiText.ShotPending;
-            Send(new Packet { Type = ProtocolTypes.Fire, Sequence = _pendingSequence, TurnId = _pendingTurn, Cell = cell });
+            Send(new Packet
+            {
+                Type = ProtocolTypes.Fire, Sequence = _pendingSequence, TurnId = _pendingTurn, Cell = cell
+            });
             Changed?.Invoke();
         }
 
@@ -198,7 +205,10 @@ namespace Voya.Battleship.Client
 
             if (PendingCell >= 0 && (snapshot.TurnId != _pendingTurn || snapshot.Winner >= 0))
             {
-                LastShot = snapshot.EnemyShots[PendingCell] != 0 ? ((ShotMark)snapshot.EnemyShots[PendingCell]).ToString() : UiText.ShotNotExecuted;
+                LastShot = snapshot.EnemyShots[PendingCell] != 0
+                    ? ((ShotMark)snapshot.EnemyShots[PendingCell]).ToString()
+                    : UiText.ShotNotExecuted;
+
                 PendingCell = GameRules.NoPendingCell;
                 _store.ClearPending(_slot);
             }

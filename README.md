@@ -1,6 +1,6 @@
 # Network Battleship
 
-Unity 6.3.24f1 project for the two-client Battleship test. Open `Assets/_Project/Scenes/Main.unity` and press Play. The Main scene is enabled in Build Settings. One Play session creates one server and two independent clients; no second build is needed.
+Open the project folder in Unity Hub with Unity 6000.3.24f1 and allow the existing packages to restore. This is a two-client Battleship test. Open `Assets/_Project/Scenes/Main.unity` and press Play. The Main scene is enabled in Build Settings. One Play session creates one server and two independent clients; no second build is needed.
 
 ## Architecture in 12 lines
 
@@ -47,7 +47,7 @@ Recreate client disposes its old runtime and transport subscription, then constr
 
 ## Tests and verification
 
-Run EditMode tests in Unity Test Runner or with `unity command run_tests --mode EditMode`. Thirteen EditMode tests cover placement, hit/sunk/victory, turn alternation, out-of-turn and duplicate shots, server timeout before late delivery, stale turn IDs, serialized view privacy, revision rollback, snapshot convergence, cold client state, pending shot recovery, and independent startup network profiles.
+Run EditMode tests in Unity Test Runner or with `unity command run_tests --mode EditMode --caller plugin --skill unity-cli`. Thirteen EditMode tests cover placement, hit/sunk/victory, turn alternation, out-of-turn and duplicate shots, server timeout before late delivery, stale turn IDs, serialized view privacy, revision rollback, snapshot convergence, cold client state, pending shot recovery, and independent startup network profiles.
 
 All 13 tests passed on Unity 6000.3.24f1. Play Mode checks in the live editor confirmed both clients connected with separate randomized startup settings and no current Console errors. Earlier live checks also covered rapid second fire, silent disconnect, reconnect, recreation, pending-shot recovery, scene reload with a delayed packet, and a full match reaching victory.
 
@@ -58,3 +58,9 @@ The simulated transport is intentionally in-process; there is no socket framewor
 `PLAN.md` forecast 19 hours for a conventional implementation. The project was subsequently refactored so each runtime type has its own source file and all `[SerializeField]` values are authored in Inspector. Runtime UI construction was replaced with saved scene objects and prefabs. Random placement and transport seeds are generated at runtime. The scene's `Run In Background` behavior is set through `BattleshipConfig`.
 
 Runtime code is grouped under `Composition` (scene entry point and DI wiring), `Configuration` (Inspector data), `Domain` (game rules), `Protocol` (serialized DTOs), `Client`, `Server`, `Transport`, `Presentation` (Unity views), and `Constants` (string literals). The root `Battleship.Runtime.asmdef` covers these folders. Configuration assets contain data only; command validation remains at the authoritative server and match boundaries.
+
+## Time spent and deviations
+
+The repository records the initial project check-in on 27 September 2026 at 16:25 MSK, the plan commit at 16:49, and the main implementation/refactoring commits through 19:07. Final configuration and documentation review continued that evening; at 22:45 MSK the calendar span was about 6 hours 20 minutes from initial check-in, or 5 hours 55 minutes from the plan. This includes pauses, user review, and Editor waits. Focused working time and the user's earlier prompt preparation were not timed separately, so a precise person-hour total cannot be claimed. The 19 hours in PLAN.md were an estimate, not a time report.
+
+The first pass required more review-driven rework than planned: runtime UI creation was replaced with authored scene/prefab assets; hardcoded settings and seeds were removed; the flat Runtime directory was split into modules; and defensive checks, unused members, naming and formatting were simplified. A pending-shot recreation defect required preserving the outgoing command in session storage. Switching configuration fields to serialized auto-properties also required migrating and saving the existing config asset through the Editor so Inspector values survived. The final verification passed all 13 EditMode tests and compilation reported no errors or warnings.

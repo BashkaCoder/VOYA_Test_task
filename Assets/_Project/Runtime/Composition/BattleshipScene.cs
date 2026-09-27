@@ -16,16 +16,12 @@ namespace Voya.Battleship.Composition
 {
     public class BattleshipScene : LifetimeScope
     {
-        [SerializeField]
-        private BattleshipConfig _config;
-        [SerializeField]
-        private ClientPanel[] _panels;
-        [SerializeField]
-        private NetworkLogView _logView;
-        [SerializeField]
-        private Button _restartButton;
-        [SerializeField]
-        private Button _loggingButton;
+        [SerializeField] private BattleshipConfig _config;
+        [SerializeField] private ClientPanel[] _panels;
+        [SerializeField] private NetworkLogView _logView;
+        [SerializeField] private Button _restartButton;
+        [SerializeField] private Button _loggingButton;
+
         private SessionStore _store;
         private SimulatedTransport _transport;
         private BattleshipServer _server;
@@ -49,7 +45,8 @@ namespace Voya.Battleship.Composition
             for (int slot = 0; slot < GameRules.PlayerCount; slot++)
             {
                 int capturedSlot = slot;
-                _panels[slot].Configure(slot, _transport.Profile(slot), _config.Palette, _config.NetworkSettingsLimits, () => CreateClient(capturedSlot));
+                _panels[slot].Configure(slot, _transport.Profile(slot), _config.Palette,
+                    _config.NetworkSettingsLimits, () => CreateClient(capturedSlot));
                 CreateClient(slot);
             }
 
@@ -68,7 +65,7 @@ namespace Voya.Battleship.Composition
 
             double now = Time.realtimeSinceStartupAsDouble;
             _server.Tick(now);
-            foreach (ClientRuntime client in _clients)
+            foreach (var client in _clients)
             {
                 client?.Tick(now);
             }
@@ -85,7 +82,7 @@ namespace Voya.Battleship.Composition
             _ready = false;
             if (_clients != null)
             {
-                foreach (ClientRuntime client in _clients)
+                foreach (var client in _clients)
                 {
                     client?.Dispose();
                 }
@@ -123,7 +120,7 @@ namespace Voya.Battleship.Composition
             }
 
             double now = Time.realtimeSinceStartupAsDouble;
-            foreach (ClientPanel panel in _panels)
+            foreach (var panel in _panels)
             {
                 panel.Render(now);
             }

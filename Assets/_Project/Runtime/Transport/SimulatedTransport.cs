@@ -23,6 +23,7 @@ namespace Voya.Battleship.Transport
         private Action<int, byte[]> _server;
         private readonly Action<byte[]>[] _clients;
         private readonly bool[] _enabled;
+
         public bool Logging { get; set; }
 
         public SimulatedTransport(NetworkProfile maximumProfile, bool loggingEnabled, Action<string> log)
@@ -44,8 +45,8 @@ namespace Voya.Battleship.Transport
                 {
                     LatencyMs = _random[slot].Next(maximumProfile.LatencyMs + 1),
                     JitterMs = _random[slot].Next(maximumProfile.JitterMs + 1),
-                    Loss = (float)(_random[slot].NextDouble() * maximumProfile.Loss),
-                    Duplication = (float)(_random[slot].NextDouble() * maximumProfile.Duplication)
+                    Loss = (float) (_random[slot].NextDouble() * maximumProfile.Loss),
+                    Duplication = (float) (_random[slot].NextDouble() * maximumProfile.Duplication)
                 };
                 _enabled[slot] = true;
                 _lastSnapshotSent[slot] = GameRules.NoWinner;
@@ -61,7 +62,9 @@ namespace Voya.Battleship.Transport
         public void SetEnabled(int slot, bool enabled)
         {
             _enabled[slot] = enabled;
-            Log(string.Format(TransportLogText.EndpointFormat, slot, enabled ? TransportLogText.Open : TransportLogText.SilentBreak));
+            Log(string.Format(TransportLogText.EndpointFormat, slot, enabled
+                ? TransportLogText.Open
+                : TransportLogText.SilentBreak));
         }
 
         public void BindServer(Action<int, byte[]> receive)
@@ -126,7 +129,7 @@ namespace Voya.Battleship.Transport
                     Log(string.Format(TransportLogText.DuplicateFormat, slot, label));
                 }
 
-                Schedule(slot, (byte[])bytes.Clone(), towardServer, label);
+                Schedule(slot, (byte[]) bytes.Clone(), towardServer, label);
             }
         }
 
@@ -138,7 +141,8 @@ namespace Voya.Battleship.Transport
             DeliverAsync(slot, bytes, towardServer, label, generation, delay, _lifetime.Token).Forget();
         }
 
-        private async UniTaskVoid DeliverAsync(int slot, byte[] bytes, bool towardServer, string label, int generation, int delay, CancellationToken cancellation)
+        private async UniTaskVoid DeliverAsync(int slot, byte[] bytes, bool towardServer, string label, int generation,
+            int delay, CancellationToken cancellation)
         {
             try
             {
@@ -151,7 +155,9 @@ namespace Voya.Battleship.Transport
                 Packet decoded = JsonUtility.FromJson<Packet>(Encoding.UTF8.GetString(bytes));
                 if (ShouldReport(slot, decoded, true))
                 {
-                    Log(string.Format(TransportLogText.ReceiveFormat, towardServer ? TransportLogText.Server : TransportLogText.Client, slot, label));
+                    Log(string.Format(TransportLogText.ReceiveFormat, towardServer
+                        ? TransportLogText.Server
+                        : TransportLogText.Client, slot, label));
                 }
 
                 if (towardServer)

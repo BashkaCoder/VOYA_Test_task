@@ -12,29 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7ffde865d08c54e9b3c33bf4250fd0, type: 3}
   m_Name: BattleshipConfig
   m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Configuration.BattleshipConfig
-  _boardSize: 6
-  _ships: 03000000020000000200000001000000
-  _turnSeconds: 15
-  _networkStartMaximum:
-    _latencyMs: 320
-    _jitterMs: 180
-    _loss: 0.12
-    _duplication: 0.1
-  _clientTiming:
-    _watchdogSeconds: 4
-    _connectRetrySeconds: 1
-    _heartbeatSeconds: 1
-    _shotRetrySeconds: 0.7
-  _palette:
-    _unknown: {r: 0.21, g: 0.34, b: 0.47, a: 1}
-    _ship: {r: 0.31, g: 0.76, b: 0.69, a: 1}
-    _miss: {r: 0.55, g: 0.61, b: 0.69, a: 1}
-    _hit: {r: 0.89, g: 0.35, b: 0.3, a: 1}
-    _pending: {r: 0.96, g: 0.75, b: 0.35, a: 1}
-  _networkSettingsLimits:
-    _latencyMaxMs: 1000
-    _jitterMaxMs: 700
-  _uiRefreshSeconds: 0.1
-  _visibleLogLines: 9
-  _loggingEnabled: 1
-  _runInBackground: 1
+  <BoardSize>k__BackingField: 6
+  <Ships>k__BackingField: 03000000020000000200000001000000
+  <TurnSeconds>k__BackingField: 15
+  <NetworkStartMaximum>k__BackingField:
+    <LatencyMs>k__BackingField: 320
+    <JitterMs>k__BackingField: 180
+    <Loss>k__BackingField: 0.12
+    <Duplication>k__BackingField: 0.1
+  <Timing>k__BackingField:
+    <WatchdogSeconds>k__BackingField: 4
+    <ConnectRetrySeconds>k__BackingField: 1
+    <HeartbeatSeconds>k__BackingField: 1
+    <ShotRetrySeconds>k__BackingField: 0.7
+  <Palette>k__BackingField:
+    <Unknown>k__BackingField: {r: 0.21, g: 0.34, b: 0.47, a: 1}
+    <Ship>k__BackingField: {r: 0.31, g: 0.76, b: 0.69, a: 1}
+    <Miss>k__BackingField: {r: 0.55, g: 0.61, b: 0.69, a: 1}
+    <Hit>k__BackingField: {r: 0.89, g: 0.35, b: 0.3, a: 1}
+    <Pending>k__BackingField: {r: 0.96, g: 0.75, b: 0.35, a: 1}
+  <NetworkSettingsLimits>k__BackingField:
+    <LatencyMaxMs>k__BackingField: 1000
+    <JitterMaxMs>k__BackingField: 700
+  <UiRefreshSeconds>k__BackingField: 0.1
+  <VisibleLogLines>k__BackingField: 9
+  <LoggingEnabled>k__BackingField: 1
+  <RunInBackground>k__BackingField: 1

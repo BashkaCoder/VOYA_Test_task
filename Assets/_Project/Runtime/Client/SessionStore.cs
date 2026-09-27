@@ -19,15 +19,20 @@ namespace Voya.Battleship.Client
         }
 
         public string Token(int slot) => _tokens[slot];
+
         public void SaveToken(int slot, string token) => _tokens[slot] = token;
+
         public int NextSequence(int slot) => _sequences[slot]++;
+
         public PendingShot? Pending(int slot) => _pending[slot];
+
         public void SavePending(int slot, int sequence, int turnId, int cell) => _pending[slot] = new PendingShot
         {
             Sequence = sequence,
             TurnId = turnId,
             Cell = cell
         };
+
         public void ClearPending(int slot) => _pending[slot] = null;
     }
 }
