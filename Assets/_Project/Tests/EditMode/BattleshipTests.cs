@@ -184,5 +184,29 @@ namespace Voya.Battleship.Tests
             }
             finally { recreated.Dispose(); transport.Dispose(); }
         }
+
+        [Test]
+        public void PendingCommandSurvivesRecreationAndResolvesFromAuthoritativeTurn()
+        {
+            SessionStore store = new SessionStore();
+            store.SaveToken(0, "persisted-token");
+            store.SavePending(0, 12, 1, 2);
+            SimulatedTransport transport = new SimulatedTransport(new NetworkProfile(), _ => { });
+            ClientRuntime old = new ClientRuntime(0, transport, store, 0);
+            old.Dispose();
+            ClientRuntime recreated = new ClientRuntime(0, transport, store, 1);
+            try
+            {
+                Assert.IsNull(recreated.State);
+                Assert.AreEqual(2, recreated.PendingCell);
+                Snapshot current = SmallMatch().View(0, 15);
+                current.turnId = 2;
+                recreated.ApplySnapshot(current, 1);
+                Assert.AreEqual(-1, recreated.PendingCell);
+                Assert.IsNull(store.Pending(0));
+                Assert.AreEqual("Shot did not execute", recreated.LastShot);
+            }
+            finally { recreated.Dispose(); transport.Dispose(); }
+        }
     }
 }

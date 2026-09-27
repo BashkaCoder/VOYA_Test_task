@@ -56,11 +56,12 @@ namespace Voya.Battleship
             for (int slot = 0; slot < 2; slot++) _clients[slot]?.Tick(now);
             if (now >= _nextDraw) { _nextDraw = now + 0.1; Draw(); }
         }
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             _ready = false;
             for (int slot = 0; slot < 2; slot++) _clients[slot]?.Dispose();
             _transport?.Dispose();
+            base.OnDestroy();
         }
         private void CreateClient(int slot)
         {

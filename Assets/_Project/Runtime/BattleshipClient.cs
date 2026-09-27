@@ -32,6 +32,15 @@ namespace Voya.Battleship
             _transport = transport;
             _store = store;
             _lastReceived = now;
+            SessionStore.PendingShot? pending = _store.Pending(slot);
+            if (pending.HasValue)
+            {
+                _pendingSequence = pending.Value.sequence;
+                _pendingTurn = pending.Value.turnId;
+                _pendingCell = pending.Value.cell;
+                _lastFire = now;
+                LastShot = "Shot pending recovery";
+            }
             _transport.BindClient(slot, Receive);
             Connect(now);
         }
@@ -78,6 +87,7 @@ namespace Voya.Battleship
             _pendingCell = cell;
             _pendingTurn = State.turnId;
             _pendingSequence = _store.NextSequence(_slot);
+            _store.SavePending(_slot, _pendingSequence, _pendingTurn, cell);
             _lastFire = now;
             LastShot = "Shot pending";
             Send(new Packet { type = "Fire", sequence = _pendingSequence, turnId = _pendingTurn, cell = cell });
@@ -121,6 +131,7 @@ namespace Voya.Battleship
                 {
                     LastShot = packet.accepted ? ((ShotMark)packet.shotResult).ToString() : packet.reason;
                     _pendingCell = -1;
+                    _store.ClearPending(_slot);
                 }
                 ApplySnapshot(packet.snapshot, now);
             }
@@ -138,6 +149,7 @@ namespace Voya.Battleship
             {
                 LastShot = snapshot.enemyShots[_pendingCell] != 0 ? ((ShotMark)snapshot.enemyShots[_pendingCell]).ToString() : "Shot did not execute";
                 _pendingCell = -1;
+                _store.ClearPending(_slot);
             }
         }
         public double Remaining(double now) => State == null ? 0 : Math.Max(0, State.remaining - (now - _snapshotAt));
