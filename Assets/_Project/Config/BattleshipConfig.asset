@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: BattleshipConfig
+  m_EditorClassIdentifier: Battleship.Runtime:Voya.Battleship:BattleshipConfig
+  _boardSize: 6
+  _ships: 03000000020000000200000001000000
+  _turnSeconds: 15
+  _network:
+    latencyMs: 80
+    jitterMs: 30
+    loss: 0.05
+    duplication: 0.03

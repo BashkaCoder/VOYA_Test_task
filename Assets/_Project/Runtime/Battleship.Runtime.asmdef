@@ -1,0 +1,6 @@
+{
+  "name": "Battleship.Runtime",
+  "rootNamespace": "Voya.Battleship",
+  "references": ["VContainer", "UniTask", "Unity.ugui"],
+  "autoReferenced": true
+}
