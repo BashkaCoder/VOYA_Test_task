@@ -11,15 +11,15 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a7ffde865d08c54e9b3c33bf4250fd0, type: 3}
   m_Name: BattleshipConfig
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.BattleshipConfig
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Configuration.BattleshipConfig
   _boardSize: 6
   _ships: 03000000020000000200000001000000
   _turnSeconds: 15
-  _network:
-    _latencyMs: 120
-    _jitterMs: 80
-    _loss: 0
-    _duplication: 0
+  _networkStartMaximum:
+    _latencyMs: 320
+    _jitterMs: 180
+    _loss: 0.12
+    _duplication: 0.1
   _clientTiming:
     _watchdogSeconds: 4
     _connectRetrySeconds: 1

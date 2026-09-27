@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a5db4fe7ba55494ba308317731aa562, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.BoardView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.BoardView
   _cells:
   - {fileID: 972388291979989486}
   - {fileID: 8298767166852857714}
@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 687b5ae8a5dffe34a87f0904cb9dca92, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.ClientPanel
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.ClientPanel
   _status: {fileID: 1252938583973606399}
   _timer: {fileID: 2053076177360844315}
   _shot: {fileID: 17718935761225674}
@@ -2408,7 +2408,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99c0061c49cb53545ada34a520201930, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.NetworkSettingsView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.NetworkSettingsView
   _latency: {fileID: 5246812531632244000}
   _jitter: {fileID: 459809330287247756}
   _loss: {fileID: 7561047947296786890}
@@ -2579,7 +2579,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a5db4fe7ba55494ba308317731aa562, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.BoardView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.BoardView
   _cells:
   - {fileID: 1518527313026220690}
   - {fileID: 9086873427867112489}
@@ -2724,7 +2724,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &6026916102594587473 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -2837,7 +2837,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &6375769422518071916 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -2950,7 +2950,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &6442613362632810616 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -3063,7 +3063,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &5120096271886524080 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -3176,7 +3176,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &4943005627002656241 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -3289,7 +3289,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &4822769414796092118 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -3402,7 +3402,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &4685075998787941124 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -3515,7 +3515,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &5604146694763614822 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -3628,7 +3628,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &5216030565798642208 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -3741,7 +3741,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &8430175328717481231 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -3854,7 +3854,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &8374942021820473687 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -3967,7 +3967,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &8256603847345342223 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -4080,7 +4080,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &9087337401707441659 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -4193,7 +4193,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &9164082337276916371 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -4306,7 +4306,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &9068601914598283971 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -4419,7 +4419,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &8657176958848308027 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -4532,7 +4532,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &8660067535226101781 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -4645,7 +4645,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &8756595504781400694 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -4758,7 +4758,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &7368654695175029262 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -4871,7 +4871,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &7444830887223349900 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -4984,7 +4984,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &7309385193539201307 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -5097,7 +5097,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &6945581449814600541 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -5210,7 +5210,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &8027125156961073662 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -5323,7 +5323,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &7853583002260879527 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -5436,7 +5436,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &7772825100438399389 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -5549,7 +5549,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &7753627476413314683 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -5662,7 +5662,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!224 &7600940534643746825 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6266359091190427561, guid: 19baa00f8bb20b744a35e96e4cf939d2, type: 3}
@@ -5780,7 +5780,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &4795406879882653236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5893,7 +5893,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &4912295626937395194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6006,7 +6006,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &4955078189612315174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6119,7 +6119,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &5031445256088176037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6232,7 +6232,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &5370121358882221745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6345,7 +6345,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &5463803911727486191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6458,7 +6458,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &5668015539837658739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6571,7 +6571,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &5785304928127632574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6684,7 +6684,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &5872209108582103393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6797,7 +6797,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &5940641362932873750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6910,7 +6910,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6056208857301595644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7023,7 +7023,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6065176078655028727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7136,7 +7136,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6093654210571561468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7249,7 +7249,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6275418925811044157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7362,7 +7362,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6372599409110696248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7475,7 +7475,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6458184177165485532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7588,7 +7588,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6501381598522520949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7701,7 +7701,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6570884905612441231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7814,7 +7814,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6641534738873898599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7927,7 +7927,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6856255268188319263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8040,7 +8040,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &6909120151806185064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8153,7 +8153,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7030185320348260771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8266,7 +8266,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7236532283646345185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8379,7 +8379,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7248470388941035882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8492,7 +8492,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7371893750816853588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8605,7 +8605,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7428779628888600556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8718,7 +8718,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7431993919315511034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8831,7 +8831,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7496913294681693925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8944,7 +8944,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7613219256800408113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9057,7 +9057,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7710928361576426230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9170,7 +9170,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7853746548541342202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9283,7 +9283,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &7982808475871480488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9396,7 +9396,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8095022203814075225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9509,7 +9509,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8107701191094450815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9622,7 +9622,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8244254570674799636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9735,7 +9735,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8275555058070129078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9848,7 +9848,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8294326392542197824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9961,7 +9961,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8787610041543848838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10074,7 +10074,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8790356963372923155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10187,7 +10187,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8804034378411088896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10300,7 +10300,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8823386304774921714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10413,7 +10413,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8838201953809932220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10526,7 +10526,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &8846934353694983683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10639,7 +10639,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
 --- !u!1001 &9155390190864699749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10752,4 +10752,4 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView

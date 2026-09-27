@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 687b5ae8a5dffe34a87f0904cb9dca92, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.ClientPanel
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.ClientPanel
 --- !u!1 &287739218
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74427c2cd4263ab49845711bf99735a9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.NetworkLogView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.NetworkLogView
   _text: {fileID: 956971201}
 --- !u!1 &1009343182
 GameObject:
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a8fb43ebe6984d44b59f42ecc8a01ef, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.BattleshipScene
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Composition.BattleshipScene
   parentReference:
     TypeName: 
   autoRun: 1
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 687b5ae8a5dffe34a87f0904cb9dca92, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.ClientPanel
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.ClientPanel
 --- !u!1 &2030144781
 GameObject:
   m_ObjectHideFlags: 0

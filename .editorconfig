@@ -1,0 +1,6 @@
+root = true
+
+[*.cs]
+csharp_prefer_braces = true:warning
+dotnet_diagnostic.IDE0011.severity = warning
+dotnet_sort_system_directives_first = true

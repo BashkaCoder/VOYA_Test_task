@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 688d041428ac903498c99905fb17a512, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.CellView
+  m_EditorClassIdentifier: Battleship.Runtime::Voya.Battleship.Presentation.CellView
   _image: {fileID: 1951247313884582260}
   _mark: {fileID: 740469801777142924}
   _button: {fileID: 5121067845352588203}
@@ -211,7 +211,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
